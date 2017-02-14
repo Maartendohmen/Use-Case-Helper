@@ -12,14 +12,15 @@ namespace Use_Case_Helper
 {
     public partial class Form1 : Form
     {
+        int aantalman = 0;
+        Graphics g;
+        Nameactor name = new Nameactor();
+
         public Form1()
         {
             InitializeComponent();
         }
-
-        int aantalman = 0;
-        Graphics g;
-
+    
         private void pnteken_Click(object sender, EventArgs e)
         {
             if (rbtnactor.Checked && rbtncreate.Checked)
@@ -33,6 +34,10 @@ namespace Use_Case_Helper
 
                     if (aantalman == 0)
                     {
+                        name.ShowDialog();
+                        label1.Visible = true;
+                        label1.Text = name.tbname.Text;
+
                         g = pnteken.CreateGraphics();
 
                         Pen p = new Pen(Color.Black, 3);
@@ -55,6 +60,10 @@ namespace Use_Case_Helper
 
                     if (aantalman == 1)
                     {
+                        name.ShowDialog();
+                        label2.Visible = true;
+                        label2.Text = name.tbname.Text;
+
                         g = pnteken.CreateGraphics();
 
                         Pen p = new Pen(Color.Black, 3);
@@ -77,6 +86,10 @@ namespace Use_Case_Helper
 
                     if (aantalman == 2)
                     {
+                        name.ShowDialog();
+                        label3.Visible = true;
+                        label3.Text = name.tbname.Text;
+
                         g = pnteken.CreateGraphics();
 
                         Pen p = new Pen(Color.Black, 3);

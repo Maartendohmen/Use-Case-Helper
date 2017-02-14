@@ -38,8 +38,9 @@
             this.btnclear = new System.Windows.Forms.Button();
             this.btnremove = new System.Windows.Forms.Button();
             this.pnteken = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.gblements.SuspendLayout();
             this.gpbmode.SuspendLayout();
             this.pnteken.SuspendLayout();
@@ -115,6 +116,7 @@
             // rbtncreate
             // 
             this.rbtncreate.AutoSize = true;
+            this.rbtncreate.Checked = true;
             this.rbtncreate.Location = new System.Drawing.Point(10, 18);
             this.rbtncreate.Name = "rbtncreate";
             this.rbtncreate.Size = new System.Drawing.Size(56, 17);
@@ -143,6 +145,7 @@
             // 
             // pnteken
             // 
+            this.pnteken.Controls.Add(this.label3);
             this.pnteken.Controls.Add(this.label2);
             this.pnteken.Controls.Add(this.label1);
             this.pnteken.Location = new System.Drawing.Point(20, 22);
@@ -150,15 +153,6 @@
             this.pnteken.Size = new System.Drawing.Size(496, 296);
             this.pnteken.TabIndex = 4;
             this.pnteken.Click += new System.EventHandler(this.pnteken_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // label2
             // 
@@ -168,6 +162,27 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(41, 274);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
             // 
             // Form1
             // 
@@ -180,7 +195,7 @@
             this.Controls.Add(this.gpbmode);
             this.Controls.Add(this.gblements);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Use case helper";
             this.gblements.ResumeLayout(false);
             this.gblements.PerformLayout();
             this.gpbmode.ResumeLayout(false);
@@ -205,6 +220,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Panel pnteken;
+        private System.Windows.Forms.Label label3;
     }
 }
 
