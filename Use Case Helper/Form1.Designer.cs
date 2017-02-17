@@ -38,9 +38,9 @@
             this.btnclear = new System.Windows.Forms.Button();
             this.btnremove = new System.Windows.Forms.Button();
             this.pnteken = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.gblements.SuspendLayout();
             this.gpbmode.SuspendLayout();
             this.pnteken.SuspendLayout();
@@ -133,6 +133,7 @@
             this.btnclear.TabIndex = 2;
             this.btnclear.Text = "Clear All";
             this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // btnremove
             // 
@@ -154,6 +155,16 @@
             this.pnteken.TabIndex = 4;
             this.pnteken.Click += new System.EventHandler(this.pnteken_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(41, 274);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -173,16 +184,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             this.label1.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 274);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
-            this.label3.Visible = false;
             // 
             // Form1
             // 

@@ -15,6 +15,8 @@ namespace Use_Case_Helper
         int aantalman = 0;
         Graphics g;
         Nameactor name = new Nameactor();
+        Use_Case_input usecaseinput = new Use_Case_input();
+        Pen p = new Pen(Color.Black, 3);
 
         public Form1()
         {
@@ -25,10 +27,9 @@ namespace Use_Case_Helper
         {
             if (rbtnactor.Checked && rbtncreate.Checked)
             {
-                this.Cursor = new Cursor(Cursor.Current.Handle);
-                Point a = Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y);
+                Point a = pnteken.PointToClient(Cursor.Position);
 
-                if (a.X < 450)
+                if (a.X < 140)
                 {
                     MessageBox.Show("X = " + a.X.ToString() + " " + "Y = " + a.Y.ToString());
 
@@ -39,8 +40,6 @@ namespace Use_Case_Helper
                         label1.Text = name.tbname.Text;
 
                         g = pnteken.CreateGraphics();
-
-                        Pen p = new Pen(Color.Black, 3);
 
                         Point linkervoetb = new Point(20, 80);
                         Point linkervoete = new Point(60, 60);
@@ -66,8 +65,6 @@ namespace Use_Case_Helper
 
                         g = pnteken.CreateGraphics();
 
-                        Pen p = new Pen(Color.Black, 3);
-
                         Point linkervoetb = new Point(20, 180);
                         Point linkervoete = new Point(60, 160);
                         Point rechtervoetb = new Point(100, 180);
@@ -91,8 +88,6 @@ namespace Use_Case_Helper
                         label3.Text = name.tbname.Text;
 
                         g = pnteken.CreateGraphics();
-
-                        Pen p = new Pen(Color.Black, 3);
 
                         Point linkervoetb = new Point(20, 280);
                         Point linkervoete = new Point(60, 260);
@@ -120,9 +115,30 @@ namespace Use_Case_Helper
 
                 else
                 {
-                    MessageBox.Show("To Create a Actor, Please click on the left side of the program");
+                    usecaseinput.ShowDialog();
+          
+                    g = pnteken.CreateGraphics();
+
+                    string name = usecaseinput.tbname.Text;
+                    Font font = new Font("Arial", 12);
+                    Brush r = new SolidBrush(Color.Black);
+
+                    g.DrawString(name, font, r, a.X-40,a.Y-30);
+                  SizeF lengte =  g.MeasureString(name, font);
+
+                    g.DrawEllipse(p, a.X - 50, a.Y - 40, lengte.Width + 15,lengte.Height + 15);
+
+
+
+
                 }
             }
+        }
+
+        private void btnclear_Click(object sender, EventArgs e)
+        {
+            Color background = Color.FromKnownColor(KnownColor.Control);
+            g.Clear(background);
         }
     }
 }
