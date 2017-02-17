@@ -16,7 +16,7 @@ namespace Use_Case_Helper
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
-        Pen p = new Pen(Color.Black, 3);
+        Pen p = new Pen(Color.Black, 2);
 
         public Form1()
         {
@@ -31,7 +31,7 @@ namespace Use_Case_Helper
 
                 if (a.X < 140)
                 {
-                    MessageBox.Show("X = " + a.X.ToString() + " " + "Y = " + a.Y.ToString());
+                   // MessageBox.Show("X = " + a.X.ToString() + " " + "Y = " + a.Y.ToString());
 
                     switch (aantalman)
                     {
@@ -133,7 +133,7 @@ namespace Use_Case_Helper
                 g.DrawString(name, font, r, a.X-2 , a.Y-3 );
                 SizeF lengte = g.MeasureString(name, font);
 
-                g.DrawEllipse(p, a.X-7 , a.Y-7 , lengte.Width + 15, lengte.Height + 15);
+                g.DrawEllipse(p, a.X-7 , a.Y-7 , lengte.Width + 17, lengte.Height + 17);
             }
 
         }
@@ -156,6 +156,33 @@ namespace Use_Case_Helper
             label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;
+        }
+
+        private void pnteken_MouseHover(object sender, EventArgs e)
+        {
+            Point a = pnteken.PointToClient(Cursor.Position);
+            if (aantalman == 0)
+            {
+
+            }
+            else if (aantalman == 1)
+            {
+                Rectangle mannetje1 = new Rectangle(10, 0, 100, 93);
+                if (Rectangle.Intersect(mannetje1,mannetje1) = true)
+                
+                Rectangle.Intersect(mannetje1, mannetje1);
+
+
+            }
+            else if (aantalman == 2)
+            {
+
+            }
+            
+
+
+
+           
         }
     }
 }

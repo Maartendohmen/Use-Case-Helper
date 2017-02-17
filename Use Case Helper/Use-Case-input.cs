@@ -27,7 +27,7 @@ namespace Use_Case_Helper
             input.Add(tbdescription.Text);
             input.Add(tbexceptions.Text);
             input.Add(tbresult.Text);
-
+            
 
         }
     }
