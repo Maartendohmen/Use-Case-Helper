@@ -14,11 +14,13 @@ namespace Use_Case_Helper
     {
         int aantalman = 0;
         int selectedactors = 0;
+        int selectedcases = 0;
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
         Pen p = new Pen(Color.Black, 2);
         Color background = Color.FromKnownColor(KnownColor.Control);
+        List<Rectangle> usecases = new List<Rectangle>();
 
         public Form1()
         {
@@ -118,6 +120,8 @@ namespace Use_Case_Helper
                 }
             }
 
+
+
             if (rbtnusecases.Checked && rbtncreate.Checked)
             {
                 Point a = pnteken.PointToClient(Cursor.Position);
@@ -132,11 +136,22 @@ namespace Use_Case_Helper
 
                 g.DrawString(name, font, r, a.X - 2, a.Y - 3);
                 SizeF lengte = g.MeasureString(name, font);
-
                 g.DrawEllipse(p, a.X - 7, a.Y - 7, lengte.Width + 17, lengte.Height + 17);
+                int width = Convert.ToInt32(lengte.Width + 17);
+                int height = Convert.ToInt32(lengte.Height + 17);
+                Rectangle nieuwe = new Rectangle(a.X - 7, a.Y - 7, width,height);
+                usecases.Add(nieuwe);
+
             }
 
-            if(rbtnselect.Checked)
+
+
+
+
+
+
+
+            if(rbtnselect.Checked && rbtnactor.Checked)
             {
                 Point mouseposition = pnteken.PointToClient(Cursor.Position);
                 Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 1, 1);
@@ -169,9 +184,34 @@ namespace Use_Case_Helper
                     g.DrawRectangle(p, mannetje3);
                     selectedactors++;
                 }
-
             }
+
+
+
+            if (rbtnselect.Checked && rbtnusecases.Checked)
+            {
+                Point mouseposition = pnteken.PointToClient(Cursor.Position);
+
+                Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 5, 5);
+                foreach (Rectangle cases in usecases)
+                {
+                    Rectangle match = Rectangle.Intersect(mousepositionrect, cases);
+                    if (match.X != 0 && selectedcases < 1)
+                    {
+                        g.DrawRectangle(p, cases);
+                        selectedcases++;
+                        break;
+                    }
+                    
+                }
+                
+            }
+
+            
+
         }
+
+
         
 
 
