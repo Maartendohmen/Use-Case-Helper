@@ -13,6 +13,7 @@ namespace Use_Case_Helper
     public partial class Form1 : Form
     {
         int aantalman = 0;
+        int selectedactors = 0;
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
@@ -23,16 +24,16 @@ namespace Use_Case_Helper
         {
             InitializeComponent();
         }
-    
+
         private void pnteken_Click(object sender, EventArgs e)
         {
             if (rbtnactor.Checked && rbtncreate.Checked)
             {
-                Point a = pnteken.PointToClient(Cursor.Position);
+                Point mouseposition = pnteken.PointToClient(Cursor.Position);
 
-                if (a.X < 140)
+                if (mouseposition.X < 140)
                 {
-                   // MessageBox.Show("X = " + a.X.ToString() + " " + "Y = " + a.Y.ToString());
+                    // MessageBox.Show("X = " + a.X.ToString() + " " + "Y = " + a.Y.ToString());
 
                     switch (aantalman)
                     {
@@ -108,22 +109,20 @@ namespace Use_Case_Helper
                             aantalman++;
                             break;
 
-                            case 3:
+                        case 3:
                             MessageBox.Show("You have reached the maximum number of actors");
                             break;
                     }
 
-                    
+
                 }
             }
 
-
-
-            else if (rbtnusecases.Checked && rbtncreate.Checked)
+            if (rbtnusecases.Checked && rbtncreate.Checked)
             {
                 Point a = pnteken.PointToClient(Cursor.Position);
 
-               usecaseinput.ShowDialog();
+                usecaseinput.ShowDialog();
 
                 g = pnteken.CreateGraphics();
 
@@ -131,14 +130,49 @@ namespace Use_Case_Helper
                 Font font = new Font("Arial", 12);
                 Brush r = new SolidBrush(Color.Black);
 
-                g.DrawString(name, font, r, a.X-2 , a.Y-3 );
+                g.DrawString(name, font, r, a.X - 2, a.Y - 3);
                 SizeF lengte = g.MeasureString(name, font);
 
-                g.DrawEllipse(p, a.X-7 , a.Y-7 , lengte.Width + 17, lengte.Height + 17);
+                g.DrawEllipse(p, a.X - 7, a.Y - 7, lengte.Width + 17, lengte.Height + 17);
             }
 
-        }
+            if(rbtnselect.Checked)
+            {
+                Point mouseposition = pnteken.PointToClient(Cursor.Position);
+                Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 1, 1);
+                Rectangle mannetje1 = new Rectangle(10, 0, 100, 93);
+                Rectangle mannetje2 = new Rectangle(10, 100, 100, 93);
+                Rectangle mannetje3 = new Rectangle(10, 200, 100, 93);
+                Rectangle mannetje1select = Rectangle.Intersect(mannetje1, mousepositionrect);
+                Rectangle mannetje2select = Rectangle.Intersect(mannetje2, mousepositionrect);
+                Rectangle mannetje3select = Rectangle.Intersect(mannetje3, mousepositionrect);
 
+                if (selectedactors == 1)
+                {
+                    MessageBox.Show("Select one actor at a time");
+                }
+
+                else if (mannetje1select.X != 0 && mannetje2select.X == 0 && mannetje3select.X == 0)
+                {
+                    g.DrawRectangle(p, mannetje1);
+                    selectedactors++;
+                }
+
+               else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0)
+                {
+                    g.DrawRectangle(p, mannetje2);
+                    selectedactors++;
+                }
+
+               else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0)
+                {
+                    g.DrawRectangle(p, mannetje3);
+                    selectedactors++;
+                }
+
+            }
+        }
+        
 
 
 
@@ -150,6 +184,7 @@ namespace Use_Case_Helper
         {
             g.Clear(background);
             aantalman = 0;
+            selectedactors = 0;
             label1.Text = "";
             label2.Text = "";
             label3.Text = "";
@@ -157,10 +192,6 @@ namespace Use_Case_Helper
             label2.Visible = false;
             label3.Visible = false;
         }
-
-
-
-            }
-        }
-    
+    }
+ }
 
