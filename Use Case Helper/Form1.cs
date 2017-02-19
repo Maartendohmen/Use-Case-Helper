@@ -17,6 +17,7 @@ namespace Use_Case_Helper
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
         Pen p = new Pen(Color.Black, 2);
+        Color background = Color.FromKnownColor(KnownColor.Control);
 
         public Form1()
         {
@@ -147,7 +148,6 @@ namespace Use_Case_Helper
 
         private void btnclear_Click(object sender, EventArgs e)
         {
-            Color background = Color.FromKnownColor(KnownColor.Control);
             g.Clear(background);
             aantalman = 0;
             label1.Text = "";
@@ -158,31 +158,9 @@ namespace Use_Case_Helper
             label3.Visible = false;
         }
 
-        private void pnteken_MouseHover(object sender, EventArgs e)
-        {
-            Point a = pnteken.PointToClient(Cursor.Position);
-            if (aantalman == 0)
-            {
-
-            }
-            else if (aantalman == 1)
-            {
-                Rectangle mannetje1 = new Rectangle(10, 0, 100, 93);
-                if (Rectangle.Intersect(mannetje1,mannetje1) = true)
-                
-                Rectangle.Intersect(mannetje1, mannetje1);
 
 
             }
-            else if (aantalman == 2)
-            {
-
-            }
-            
-
-
-
-           
         }
-    }
-}
+    
+
