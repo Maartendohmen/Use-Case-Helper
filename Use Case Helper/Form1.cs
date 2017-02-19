@@ -22,6 +22,11 @@ namespace Use_Case_Helper
         Color background = Color.FromKnownColor(KnownColor.Control);
         List<Rectangle> usecases = new List<Rectangle>();
 
+        Rectangle match;
+        Rectangle mannetje1select;
+        Rectangle mannetje2select;
+        Rectangle mannetje3select;
+
         public Form1()
         {
             InitializeComponent();
@@ -158,13 +163,17 @@ namespace Use_Case_Helper
                 Rectangle mannetje1 = new Rectangle(10, 0, 100, 93);
                 Rectangle mannetje2 = new Rectangle(10, 100, 100, 93);
                 Rectangle mannetje3 = new Rectangle(10, 200, 100, 93);
-                Rectangle mannetje1select = Rectangle.Intersect(mannetje1, mousepositionrect);
-                Rectangle mannetje2select = Rectangle.Intersect(mannetje2, mousepositionrect);
-                Rectangle mannetje3select = Rectangle.Intersect(mannetje3, mousepositionrect);
+               mannetje1select = Rectangle.Intersect(mannetje1, mousepositionrect);
+               mannetje2select = Rectangle.Intersect(mannetje2, mousepositionrect);
+               mannetje3select = Rectangle.Intersect(mannetje3, mousepositionrect);
 
                 if (selectedactors == 1)
                 {
                     MessageBox.Show("Select one actor at a time");
+                }
+                else if(aantalman == 0)
+                {
+                    MessageBox.Show("Please create a actor first");
                 }
 
                 else if (mannetje1select.X != 0 && mannetje2select.X == 0 && mannetje3select.X == 0)
@@ -184,6 +193,7 @@ namespace Use_Case_Helper
                     g.DrawRectangle(p, mannetje3);
                     selectedactors++;
                 }
+                
             }
 
 
@@ -195,7 +205,7 @@ namespace Use_Case_Helper
                 Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 5, 5);
                 foreach (Rectangle cases in usecases)
                 {
-                    Rectangle match = Rectangle.Intersect(mousepositionrect, cases);
+                     match = Rectangle.Intersect(mousepositionrect, cases);
                     if (match.X != 0 && selectedcases < 1)
                     {
                         g.DrawRectangle(p, cases);
@@ -204,7 +214,27 @@ namespace Use_Case_Helper
                     }
                     
                 }
-                
+
+                if(match.X != 0 && mannetje1select.X != 0)
+                {
+                    g.DrawLine(p, mannetje1select.X +75, mannetje1select.Y, match.X-75, match.Y);
+                    selectedactors = 0;
+                    selectedcases = 0;
+
+                }
+               else if (match.X != 0 && mannetje2select.X != 0)
+                {
+                    g.DrawLine(p, mannetje2select.X +75, mannetje2select.Y, match.X-75, match.Y);
+                     selectedactors = 0;
+                     selectedcases = 0;
+                }
+               else if (match.X != 0 && mannetje3select.X != 0)
+                {
+                    g.DrawLine(p, mannetje3select.X +75, mannetje3select.Y, match.X -75, match.Y);
+                    selectedactors = 0;
+                    selectedcases = 0;
+                }
+
             }
 
             
@@ -232,6 +262,10 @@ namespace Use_Case_Helper
             label2.Visible = false;
             label3.Visible = false;
         }
-    }
- }
+
+
+
+            }
+        }
+
 
