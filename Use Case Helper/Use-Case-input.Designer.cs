@@ -187,11 +187,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbsummary;
-        private System.Windows.Forms.TextBox tbassumption;
-        private System.Windows.Forms.RichTextBox tbdescription;
-        private System.Windows.Forms.RichTextBox tbexceptions;
-        private System.Windows.Forms.TextBox tbresult;
         private System.Windows.Forms.Label lbname;
         private System.Windows.Forms.Label lbsummary;
         private System.Windows.Forms.Label lbactoren;
@@ -201,5 +196,10 @@
         private System.Windows.Forms.Label lbresult;
         public System.Windows.Forms.TextBox tbname;
         public System.Windows.Forms.TextBox tbactoren;
+        public System.Windows.Forms.TextBox tbsummary;
+        public System.Windows.Forms.TextBox tbassumption;
+        public System.Windows.Forms.RichTextBox tbdescription;
+        public System.Windows.Forms.RichTextBox tbexceptions;
+        public System.Windows.Forms.TextBox tbresult;
     }
 }

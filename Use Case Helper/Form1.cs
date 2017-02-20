@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Use_Case_Helper
 {
@@ -15,6 +16,7 @@ namespace Use_Case_Helper
         int aantalman = 0;
         int selectedactors = 0;
         int selectedcases = 0;
+        int wichtcase = 0;
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
@@ -265,6 +267,7 @@ namespace Use_Case_Helper
                 Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 5, 5);
                 foreach (Rectangle cases in usecases)
                 {
+                    wichtcase++;
                     match = Rectangle.Intersect(mousepositionrect, cases);
                     if (match.X != 0 && selectedcases < 1)
                     {
@@ -285,27 +288,41 @@ namespace Use_Case_Helper
 
                     selectedactors = 0;
                     selectedcases = 0;
-                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren + label1.Text;
+                    match.X = 0;
+                    mannetje1select.X = 0;
+                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label1.Text;
 
                 }
                 else if (match.X != 0 && mannetje2select.X != 0)
                 {
                     g.DrawLine(p, mannetje2select.X + 75, mannetje2select.Y, match.X - 75, match.Y);
-                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren + label2.Text;
+                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label2.Text;
 
-
+                    match.X = 0;
+                    mannetje2select.X = 0;
                     selectedactors = 0;
                     selectedcases = 0;
+
                 }
                 else if (match.X != 0 && mannetje3select.X != 0)
                 {
                     g.DrawLine(p, mannetje3select.X + 75, mannetje3select.Y, match.X - 75, match.Y);
-                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren + label3.Text;
+                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text +" " + label3.Text;
 
+                    match.X = 0;
+                    mannetje3select.X = 0;
                     selectedactors = 0;
                     selectedcases = 0;
                 }
+                else 
+                {
+                    usecaseinput.ShowDialog();
+                    
+                    
+                    
+                }
             }
+            wichtcase = 0;
         }
 
 
