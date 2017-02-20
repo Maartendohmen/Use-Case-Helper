@@ -32,7 +32,7 @@ namespace Use_Case_Helper
 
             i++;
             
-            File.AppendAllText(@"C:\Users\Maarten\Desktop\Applicaties Visualstudio\Use Case Helper\Use Case Helper\bin\Debug\Saves.txt", i + System.Environment.NewLine + tbname.Text +System.Environment.NewLine+ tbsummary.Text + System.Environment.NewLine + tbassumption.Text + System.Environment.NewLine + tbdescription.Text + System.Environment.NewLine + tbexceptions.Text + System.Environment.NewLine + tbresult.Text);
+            File.AppendAllText(@"C:\Users\Maarten\Desktop\Applicaties Visualstudio\Use Case Helper\Use Case Helper\bin\Debug\Saves.txt", i + Environment.NewLine + tbname.Text +Environment.NewLine+ tbsummary.Text + Environment.NewLine + tbassumption.Text + Environment.NewLine + tbdescription.Text + Environment.NewLine + tbexceptions.Text + Environment.NewLine + tbresult.Text + Environment.NewLine + Environment.NewLine );
         }
     }
 }

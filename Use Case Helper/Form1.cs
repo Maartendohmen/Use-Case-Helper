@@ -19,10 +19,10 @@ namespace Use_Case_Helper
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
         Pen p = new Pen(Color.Black, 2);
+        Pen z = new Pen(Color.FromKnownColor(KnownColor.Control));
         Color background = Color.FromKnownColor(KnownColor.Control);
         Rectangle usecaseselect = new Rectangle();
         List<Rectangle> usecases = new List<Rectangle>();
-        List<Point> startline = new List<Point>();
 
         Rectangle match;
         Rectangle mannetje1select;
@@ -276,23 +276,23 @@ namespace Use_Case_Helper
 
                 }
 
+                //draw line
+
                 if (match.X != 0 && mannetje1select.X != 0)
                 {
                     g.DrawLine(p, mannetje1select.X + 75, mannetje1select.Y, match.X - 75, match.Y);
 
-                    Point linetoman1 = new Point(mannetje1select.X + 75, mannetje1select.Y);
-                    startline.Add(linetoman1);
 
                     selectedactors = 0;
                     selectedcases = 0;
+                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren + label1.Text;
 
                 }
                 else if (match.X != 0 && mannetje2select.X != 0)
                 {
                     g.DrawLine(p, mannetje2select.X + 75, mannetje2select.Y, match.X - 75, match.Y);
+                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren + label2.Text;
 
-                    Point linetoman2 = new Point(mannetje2select.X + 75, mannetje2select.Y);
-                    startline.Add(linetoman2);
 
                     selectedactors = 0;
                     selectedcases = 0;
@@ -300,14 +300,10 @@ namespace Use_Case_Helper
                 else if (match.X != 0 && mannetje3select.X != 0)
                 {
                     g.DrawLine(p, mannetje3select.X + 75, mannetje3select.Y, match.X - 75, match.Y);
-
-                    Point linetoman3 = new Point(mannetje3select.X + 75, mannetje3select.Y);
-                    startline.Add(linetoman3);
+                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren + label3.Text;
 
                     selectedactors = 0;
                     selectedcases = 0;
-
-
                 }
             }
         }
@@ -335,7 +331,7 @@ namespace Use_Case_Helper
         }
 
 
-
+//verwijder actor
 
 
         private void btnremove_Click(object sender, EventArgs e)
@@ -373,6 +369,8 @@ namespace Use_Case_Helper
                 }
             }
 
+            //verwijdercasus
+
             if (rbtnusecases.Checked && rbtnselect.Checked)
             {
                 g.FillRectangle(filler, usecaseselect.X -1,usecaseselect.Y-1,usecaseselect.Width+3,usecaseselect.Height+2);
@@ -384,7 +382,10 @@ namespace Use_Case_Helper
 
         private void pnteken_DoubleClick(object sender, EventArgs e)
         {
-            
+            if (rbtnselect.Checked)
+            {
+
+            }
         }
     }
 }

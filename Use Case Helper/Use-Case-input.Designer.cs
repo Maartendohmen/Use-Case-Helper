@@ -62,6 +62,7 @@
             // 
             this.tbactoren.Location = new System.Drawing.Point(110, 127);
             this.tbactoren.Name = "tbactoren";
+            this.tbactoren.ReadOnly = true;
             this.tbactoren.Size = new System.Drawing.Size(214, 20);
             this.tbactoren.TabIndex = 2;
             // 
@@ -187,7 +188,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox tbsummary;
-        private System.Windows.Forms.TextBox tbactoren;
         private System.Windows.Forms.TextBox tbassumption;
         private System.Windows.Forms.RichTextBox tbdescription;
         private System.Windows.Forms.RichTextBox tbexceptions;
@@ -200,5 +200,6 @@
         private System.Windows.Forms.Label lbdiscription;
         private System.Windows.Forms.Label lbresult;
         public System.Windows.Forms.TextBox tbname;
+        public System.Windows.Forms.TextBox tbactoren;
     }
 }
