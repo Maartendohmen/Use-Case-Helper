@@ -267,30 +267,41 @@ namespace Use_Case_Helper
         {
             Brush filler = new SolidBrush(background);
 
-
-            if (mannetje1select.X != 0 && mannetje2select.X == 0 && mannetje3select.X == 0)
+            if (rbtnactor.Checked && rbtnselect.Checked)
             {
-                g.FillRectangle(filler, 10, 0, 100, 93);
-                selectedactors--;
-                label1.Text = "";
-                label1.Visible = false;
+
+                if (mannetje1select.X != 0 && mannetje2select.X == 0 && mannetje3select.X == 0)
+                {
+                    g.FillRectangle(filler, 9, 0, 102, 95);
+                    aantalman--;
+                    selectedactors = 0;
+                    label1.Text = "";
+                    label1.Visible = false;
+                }
+
+                else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0)
+                {
+                    g.FillRectangle(filler, 9, 99, 102, 95);
+                    aantalman--;
+                    selectedactors = 0;
+                    label2.Text = "";
+                    label2.Visible = false;
+                }
+
+                else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0)
+                {
+                    g.FillRectangle(filler, 9, 199, 102, 95);
+                    aantalman--;
+                    selectedactors = 0;
+                    label3.Text = "";
+                    label3.Visible = false;
+                }
             }
 
-            else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0)
-            {
-                g.FillRectangle(filler, 10, 100, 100, 93);
-                selectedactors--;
-                label2.Text = "";
-                label2.Visible = false;
-            }
 
-            else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0)
-            {
-                g.FillRectangle(filler, 9, 199, 102, 95);
-                selectedactors--;
-                label3.Text = "";
-                label3.Visible = false;
-            }
+
+
+
 
         }
     }
