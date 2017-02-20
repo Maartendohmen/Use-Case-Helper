@@ -263,9 +263,38 @@ namespace Use_Case_Helper
             label3.Visible = false;
         }
 
+        private void btnremove_Click(object sender, EventArgs e)
+        {
+            Brush filler = new SolidBrush(background);
 
 
+            if (mannetje1select.X != 0 && mannetje2select.X == 0 && mannetje3select.X == 0)
+            {
+                g.FillRectangle(filler, 10, 0, 100, 93);
+                selectedactors--;
+                label1.Text = "";
+                label1.Visible = false;
             }
+
+            else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0)
+            {
+                g.FillRectangle(filler, 10, 100, 100, 93);
+                selectedactors--;
+                label2.Text = "";
+                label2.Visible = false;
+            }
+
+            else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0)
+            {
+                g.FillRectangle(filler, 9, 199, 102, 95);
+                selectedactors--;
+                label3.Text = "";
+                label3.Visible = false;
+            }
+
         }
+    }
+    }
+        
 
 

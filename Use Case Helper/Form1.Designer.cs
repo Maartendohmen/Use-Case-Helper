@@ -143,6 +143,7 @@
             this.btnremove.TabIndex = 3;
             this.btnremove.Text = "Remove";
             this.btnremove.UseVisualStyleBackColor = true;
+            this.btnremove.Click += new System.EventHandler(this.btnremove_Click);
             // 
             // pnteken
             // 
