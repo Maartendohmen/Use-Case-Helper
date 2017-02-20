@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.gblements = new System.Windows.Forms.GroupBox();
-            this.rbtnline = new System.Windows.Forms.RadioButton();
             this.rbtnusecases = new System.Windows.Forms.RadioButton();
             this.rbtnactor = new System.Windows.Forms.RadioButton();
             this.gpbmode = new System.Windows.Forms.GroupBox();
@@ -48,26 +47,14 @@
             // 
             // gblements
             // 
-            this.gblements.Controls.Add(this.rbtnline);
             this.gblements.Controls.Add(this.rbtnusecases);
             this.gblements.Controls.Add(this.rbtnactor);
             this.gblements.Location = new System.Drawing.Point(533, 12);
             this.gblements.Name = "gblements";
-            this.gblements.Size = new System.Drawing.Size(131, 91);
+            this.gblements.Size = new System.Drawing.Size(131, 64);
             this.gblements.TabIndex = 0;
             this.gblements.TabStop = false;
             this.gblements.Text = "Elements";
-            // 
-            // rbtnline
-            // 
-            this.rbtnline.AutoSize = true;
-            this.rbtnline.Location = new System.Drawing.Point(6, 64);
-            this.rbtnline.Name = "rbtnline";
-            this.rbtnline.Size = new System.Drawing.Size(45, 17);
-            this.rbtnline.TabIndex = 2;
-            this.rbtnline.TabStop = true;
-            this.rbtnline.Text = "Line";
-            this.rbtnline.UseVisualStyleBackColor = true;
             // 
             // rbtnusecases
             // 
@@ -155,6 +142,7 @@
             this.pnteken.Size = new System.Drawing.Size(496, 296);
             this.pnteken.TabIndex = 4;
             this.pnteken.Click += new System.EventHandler(this.pnteken_Click);
+            this.pnteken.DoubleClick += new System.EventHandler(this.pnteken_DoubleClick);
             // 
             // label3
             // 
@@ -212,7 +200,6 @@
 
         private System.Windows.Forms.GroupBox gblements;
         private System.Windows.Forms.RadioButton rbtnactor;
-        private System.Windows.Forms.RadioButton rbtnline;
         private System.Windows.Forms.RadioButton rbtnusecases;
         private System.Windows.Forms.GroupBox gpbmode;
         private System.Windows.Forms.RadioButton rbtnselect;

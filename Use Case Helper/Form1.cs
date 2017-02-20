@@ -20,7 +20,9 @@ namespace Use_Case_Helper
         Use_Case_input usecaseinput = new Use_Case_input();
         Pen p = new Pen(Color.Black, 2);
         Color background = Color.FromKnownColor(KnownColor.Control);
+        Rectangle usecaseselect = new Rectangle();
         List<Rectangle> usecases = new List<Rectangle>();
+        List<Point> startline = new List<Point>();
 
         Rectangle match;
         Rectangle mannetje1select;
@@ -34,14 +36,18 @@ namespace Use_Case_Helper
 
         private void pnteken_Click(object sender, EventArgs e)
         {
+
+
+
+            //maak mannetje
+
+
             if (rbtnactor.Checked && rbtncreate.Checked)
             {
                 Point mouseposition = pnteken.PointToClient(Cursor.Position);
 
                 if (mouseposition.X < 140)
                 {
-                    // MessageBox.Show("X = " + a.X.ToString() + " " + "Y = " + a.Y.ToString());
-
                     switch (aantalman)
                     {
                         case 0:
@@ -127,6 +133,32 @@ namespace Use_Case_Helper
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //maak case
+
+
+
+
+
             if (rbtnusecases.Checked && rbtncreate.Checked)
             {
                 Point a = pnteken.PointToClient(Cursor.Position);
@@ -144,7 +176,7 @@ namespace Use_Case_Helper
                 g.DrawEllipse(p, a.X - 7, a.Y - 7, lengte.Width + 17, lengte.Height + 17);
                 int width = Convert.ToInt32(lengte.Width + 17);
                 int height = Convert.ToInt32(lengte.Height + 17);
-                Rectangle nieuwe = new Rectangle(a.X - 7, a.Y - 7, width,height);
+                Rectangle nieuwe = new Rectangle(a.X - 7, a.Y - 7, width, height);
                 usecases.Add(nieuwe);
 
             }
@@ -156,22 +188,39 @@ namespace Use_Case_Helper
 
 
 
-            if(rbtnselect.Checked && rbtnactor.Checked)
+
+
+
+
+
+
+
+
+
+            //select mannetje
+
+
+
+
+
+
+
+            if (rbtnselect.Checked && rbtnactor.Checked)
             {
                 Point mouseposition = pnteken.PointToClient(Cursor.Position);
                 Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 1, 1);
                 Rectangle mannetje1 = new Rectangle(10, 0, 100, 93);
                 Rectangle mannetje2 = new Rectangle(10, 100, 100, 93);
                 Rectangle mannetje3 = new Rectangle(10, 200, 100, 93);
-               mannetje1select = Rectangle.Intersect(mannetje1, mousepositionrect);
-               mannetje2select = Rectangle.Intersect(mannetje2, mousepositionrect);
-               mannetje3select = Rectangle.Intersect(mannetje3, mousepositionrect);
+                mannetje1select = Rectangle.Intersect(mannetje1, mousepositionrect);
+                mannetje2select = Rectangle.Intersect(mannetje2, mousepositionrect);
+                mannetje3select = Rectangle.Intersect(mannetje3, mousepositionrect);
 
                 if (selectedactors == 1)
                 {
                     MessageBox.Show("Select one actor at a time");
                 }
-                else if(aantalman == 0)
+                else if (aantalman == 0)
                 {
                     MessageBox.Show("Please create a actor first");
                 }
@@ -182,21 +231,32 @@ namespace Use_Case_Helper
                     selectedactors++;
                 }
 
-               else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0)
+                else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0)
                 {
                     g.DrawRectangle(p, mannetje2);
                     selectedactors++;
                 }
 
-               else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0)
+                else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0)
                 {
                     g.DrawRectangle(p, mannetje3);
                     selectedactors++;
                 }
-                
+
             }
 
 
+
+
+
+
+
+            //select cases
+
+            if(selectedcases == 1)
+            {
+                MessageBox.Show("Please select one case at a time");
+            }
 
             if (rbtnselect.Checked && rbtnusecases.Checked)
             {
@@ -205,44 +265,55 @@ namespace Use_Case_Helper
                 Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 5, 5);
                 foreach (Rectangle cases in usecases)
                 {
-                     match = Rectangle.Intersect(mousepositionrect, cases);
+                    match = Rectangle.Intersect(mousepositionrect, cases);
                     if (match.X != 0 && selectedcases < 1)
                     {
                         g.DrawRectangle(p, cases);
+                        usecaseselect = cases;
                         selectedcases++;
                         break;
                     }
-                    
+
                 }
 
-                if(match.X != 0 && mannetje1select.X != 0)
+                if (match.X != 0 && mannetje1select.X != 0)
                 {
-                    g.DrawLine(p, mannetje1select.X +75, mannetje1select.Y, match.X-75, match.Y);
+                    g.DrawLine(p, mannetje1select.X + 75, mannetje1select.Y, match.X - 75, match.Y);
+
+                    Point linetoman1 = new Point(mannetje1select.X + 75, mannetje1select.Y);
+                    startline.Add(linetoman1);
+
                     selectedactors = 0;
                     selectedcases = 0;
 
                 }
-               else if (match.X != 0 && mannetje2select.X != 0)
+                else if (match.X != 0 && mannetje2select.X != 0)
                 {
-                    g.DrawLine(p, mannetje2select.X +75, mannetje2select.Y, match.X-75, match.Y);
-                     selectedactors = 0;
-                     selectedcases = 0;
-                }
-               else if (match.X != 0 && mannetje3select.X != 0)
-                {
-                    g.DrawLine(p, mannetje3select.X +75, mannetje3select.Y, match.X -75, match.Y);
+                    g.DrawLine(p, mannetje2select.X + 75, mannetje2select.Y, match.X - 75, match.Y);
+
+                    Point linetoman2 = new Point(mannetje2select.X + 75, mannetje2select.Y);
+                    startline.Add(linetoman2);
+
                     selectedactors = 0;
                     selectedcases = 0;
                 }
+                else if (match.X != 0 && mannetje3select.X != 0)
+                {
+                    g.DrawLine(p, mannetje3select.X + 75, mannetje3select.Y, match.X - 75, match.Y);
 
+                    Point linetoman3 = new Point(mannetje3select.X + 75, mannetje3select.Y);
+                    startline.Add(linetoman3);
+
+                    selectedactors = 0;
+                    selectedcases = 0;
+
+
+                }
             }
-
-            
-
         }
 
 
-        
+
 
 
 
@@ -262,6 +333,10 @@ namespace Use_Case_Helper
             label2.Visible = false;
             label3.Visible = false;
         }
+
+
+
+
 
         private void btnremove_Click(object sender, EventArgs e)
         {
@@ -298,14 +373,20 @@ namespace Use_Case_Helper
                 }
             }
 
+            if (rbtnusecases.Checked && rbtnselect.Checked)
+            {
+                g.FillRectangle(filler, usecaseselect.X -1,usecaseselect.Y-1,usecaseselect.Width+3,usecaseselect.Height+2);
+                selectedcases--;
+            }
 
+           
+        }
 
-
-
-
+        private void pnteken_DoubleClick(object sender, EventArgs e)
+        {
+            
         }
     }
-    }
-        
+}
 
 
