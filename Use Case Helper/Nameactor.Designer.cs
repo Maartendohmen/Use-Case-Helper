@@ -69,6 +69,7 @@
             this.Controls.Add(this.tbname);
             this.Name = "Nameactor";
             this.Text = "Nameactor";
+            this.Load += new System.EventHandler(this.Nameactor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

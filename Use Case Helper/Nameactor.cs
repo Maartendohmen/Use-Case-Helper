@@ -29,5 +29,10 @@ namespace Use_Case_Helper
                 Close();
             }
         }
+
+        private void Nameactor_Load(object sender, EventArgs e)
+        {
+            tbname.Text = "";
+        }
     }
 }
