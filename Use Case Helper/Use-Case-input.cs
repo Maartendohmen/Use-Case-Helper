@@ -22,11 +22,11 @@ namespace Use_Case_Helper
         private void btnSave_Click(object sender, EventArgs e)
         {
             wichcases++;
-            
-            input.Add("*" + wichcases.ToString() + "*" +  tbname.Text);
+
+            input.Add("*" + wichcases.ToString() + "*" + tbname.Text);
             input.Add("*" + wichcases.ToString() + "*" + tbsummary.Text);
             input.Add("*" + wichcases.ToString() + "*" + tbassumption.Text);
-            input.Add("*"  + wichcases.ToString() + "*" + tbdescription.Text);
+            input.Add("*" + wichcases.ToString() + "*" + tbdescription.Text);
             input.Add("*" + wichcases.ToString() + "*" + tbexceptions.Text);
             input.Add("*" + wichcases.ToString() + "*" + tbresult.Text);
 
@@ -35,5 +35,4 @@ namespace Use_Case_Helper
 
 
     }
-
 }

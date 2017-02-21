@@ -293,6 +293,7 @@ namespace Use_Case_Helper
                     match.X = 0;
                     mannetje1select.X = 0;
                     usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label1.Text;
+                    wichcase = 0;
 
                 }
                 else if (match.X != 0 && mannetje2select.X != 0)
@@ -304,6 +305,7 @@ namespace Use_Case_Helper
                     mannetje2select.X = 0;
                     selectedactors = 0;
                     selectedcases = 0;
+                    wichcase = 0;
 
                 }
                 else if (match.X != 0 && mannetje3select.X != 0)
@@ -315,7 +317,10 @@ namespace Use_Case_Helper
                     mannetje3select.X = 0;
                     selectedactors = 0;
                     selectedcases = 0;
+                    wichcase = 0;
                 }
+
+
                 else
                 {
                    
@@ -327,46 +332,47 @@ namespace Use_Case_Helper
                         if (usecaseinput.input[i].Contains(element))
                         { 
                             result = usecaseinput.input[i];
-                        
 
-                            if (fillcounter == 0)
-                            {
-                                nw =  result.Replace("*" + wichcase.ToString() + "*", "");
-                                usecaseinput.tbname.Text = nw;
-                            }
-                            if (fillcounter == 1)
-                            {
-                                result.Replace("*" + wichcase.ToString() + "*", "");
-                                usecaseinput.tbsummary.Text = nw;
-                            }
-                            if (fillcounter == 2)
-                            {
-                                result.Replace("*" + wichcase.ToString() + "*", "");
-                                usecaseinput.tbassumption.Text = nw;
-                            }
-                            if (fillcounter == 3)
-                            {
-                                result.Replace("*" + wichcase.ToString() + "*", "");
-                                usecaseinput.tbdescription.Text = nw;
-                            }
-                            if (fillcounter == 4)
-                            {
-                                result.Replace("*" + wichcase.ToString() + "*", "");
-                                usecaseinput.tbexceptions.Text = nw;
-                            }
-                            if (fillcounter == 5)
-                            {
-                                result.Replace("*" + wichcase.ToString() + "*", "");
-                                usecaseinput.tbresult.Text = nw;
-                            }
-                            fillcounter++;
+                                if (fillcounter == 0)
+                                {
+                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
+                                    usecaseinput.tbname.Text = nw;
+                                }
+                                if (fillcounter == 1)
+                                {
+                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
+                                    usecaseinput.tbsummary.Text = nw;
+                                }
+                                if (fillcounter == 2)
+                                {
+                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
+                                    usecaseinput.tbassumption.Text = nw;
+                                }
+                                if (fillcounter == 3)
+                                {
+                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
+                                    usecaseinput.tbdescription.Text = nw;
+                                }
+                                if (fillcounter == 4)
+                                {
+                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
+                                    usecaseinput.tbexceptions.Text = nw;
+                                }
+                                if (fillcounter == 5)
+                                {
+                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
+                                    usecaseinput.tbresult.Text = nw;
+                                }
+                                fillcounter++;
+                            
                         }
-
+                        
                     }
-
                     usecaseinput.ShowDialog();
                     fillcounter = 0;
+                    selectedcases = 0;
                     wichcase = 0;
+
                 }
             }
         }
