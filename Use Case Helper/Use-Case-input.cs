@@ -33,6 +33,5 @@ namespace Use_Case_Helper
             this.Close();
         }
 
-
     }
 }

@@ -43,6 +43,7 @@
             this.lbdiscription = new System.Windows.Forms.Label();
             this.lbresult = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnchange = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbname
@@ -162,7 +163,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(110, 611);
+            this.btnSave.Location = new System.Drawing.Point(29, 612);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(145, 29);
             this.btnSave.TabIndex = 14;
@@ -170,11 +171,21 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnchange
+            // 
+            this.btnchange.Location = new System.Drawing.Point(184, 612);
+            this.btnchange.Name = "btnchange";
+            this.btnchange.Size = new System.Drawing.Size(145, 29);
+            this.btnchange.TabIndex = 15;
+            this.btnchange.Text = "Change";
+            this.btnchange.UseVisualStyleBackColor = true;
+            // 
             // Use_Case_input
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 667);
+            this.Controls.Add(this.btnchange);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lbresult);
             this.Controls.Add(this.lbdiscription);
@@ -213,5 +224,6 @@
         public System.Windows.Forms.RichTextBox tbexceptions;
         public System.Windows.Forms.TextBox tbresult;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnchange;
     }
 }

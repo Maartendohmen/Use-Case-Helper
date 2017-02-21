@@ -45,7 +45,7 @@ namespace Use_Case_Helper
         {
 
 
-
+            
             //maak mannetje
 
 
@@ -270,6 +270,7 @@ namespace Use_Case_Helper
                 else if (match.X != 0 && mannetje2select.X != 0)
                 {
                     g.DrawLine(p, mannetje2select.X + 75, mannetje2select.Y, match.X - 75, match.Y);
+
                     usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label2.Text;
 
                     Brush filler = new SolidBrush(background);
@@ -287,6 +288,7 @@ namespace Use_Case_Helper
                 else if (match.X != 0 && mannetje3select.X != 0)
                 {
                     g.DrawLine(p, mannetje3select.X + 75, mannetje3select.Y, match.X - 75, match.Y);
+
                     usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label3.Text;
 
                     Brush filler = new SolidBrush(background);
@@ -426,9 +428,9 @@ namespace Use_Case_Helper
                 g.FillRectangle(filler, usecaseselect.X -1,usecaseselect.Y-1,usecaseselect.Width+3,usecaseselect.Height+2);
                 selectedcases--;
             }
-
-           
        }
+
+       
 
 
         public void mannetje1tekenen()
@@ -485,7 +487,7 @@ namespace Use_Case_Helper
             g.DrawEllipse(p, 50, 200, 20, 20);
         }
 
-
+       
     }
 }
 
