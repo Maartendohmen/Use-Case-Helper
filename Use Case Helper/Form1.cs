@@ -16,7 +16,9 @@ namespace Use_Case_Helper
         int aantalman = 0;
         int selectedactors = 0;
         int selectedcases = 0;
-        int wichtcase = 0;
+        public int wichcase = 0;
+        int fillcounter = 0;
+        string nw = "";
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
@@ -255,7 +257,7 @@ namespace Use_Case_Helper
 
             //select cases
 
-            if(selectedcases == 1)
+            if (selectedcases == 1)
             {
                 MessageBox.Show("Please select one case at a time");
             }
@@ -267,7 +269,7 @@ namespace Use_Case_Helper
                 Rectangle mousepositionrect = new Rectangle(mouseposition.X, mouseposition.Y, 5, 5);
                 foreach (Rectangle cases in usecases)
                 {
-                    wichtcase++;
+                    wichcase++;
                     match = Rectangle.Intersect(mousepositionrect, cases);
                     if (match.X != 0 && selectedcases < 1)
                     {
@@ -307,22 +309,66 @@ namespace Use_Case_Helper
                 else if (match.X != 0 && mannetje3select.X != 0)
                 {
                     g.DrawLine(p, mannetje3select.X + 75, mannetje3select.Y, match.X - 75, match.Y);
-                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text +" " + label3.Text;
+                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label3.Text;
 
                     match.X = 0;
                     mannetje3select.X = 0;
                     selectedactors = 0;
                     selectedcases = 0;
                 }
-                else 
+                else
                 {
+                   
+                    string element = "*" + wichcase.ToString() + "*";
+                    string result = "";
+
+                    for (int i = 0; i < usecaseinput.input.Count; i++)
+                    {
+                        if (usecaseinput.input[i].Contains(element))
+                        { 
+                            result = usecaseinput.input[i];
+                        
+
+                            if (fillcounter == 0)
+                            {
+                                nw =  result.Replace("*" + wichcase.ToString() + "*", "");
+                                usecaseinput.tbname.Text = nw;
+                            }
+                            if (fillcounter == 1)
+                            {
+                                result.Replace("*" + wichcase.ToString() + "*", "");
+                                usecaseinput.tbsummary.Text = nw;
+                            }
+                            if (fillcounter == 2)
+                            {
+                                result.Replace("*" + wichcase.ToString() + "*", "");
+                                usecaseinput.tbassumption.Text = nw;
+                            }
+                            if (fillcounter == 3)
+                            {
+                                result.Replace("*" + wichcase.ToString() + "*", "");
+                                usecaseinput.tbdescription.Text = nw;
+                            }
+                            if (fillcounter == 4)
+                            {
+                                result.Replace("*" + wichcase.ToString() + "*", "");
+                                usecaseinput.tbexceptions.Text = nw;
+                            }
+                            if (fillcounter == 5)
+                            {
+                                result.Replace("*" + wichcase.ToString() + "*", "");
+                                usecaseinput.tbresult.Text = nw;
+                            }
+                            fillcounter++;
+                        }
+
+                    }
+
                     usecaseinput.ShowDialog();
-                    
-                    
-                    
+                    fillcounter = 0;
+                    wichcase = 0;
                 }
             }
-            wichtcase = 0;
         }
 
 
@@ -395,15 +441,7 @@ namespace Use_Case_Helper
             }
 
            
-        }
-
-        private void pnteken_DoubleClick(object sender, EventArgs e)
-        {
-            if (rbtnselect.Checked)
-            {
-
-            }
-        }
+       }
     }
 }
 

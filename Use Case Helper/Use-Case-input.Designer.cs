@@ -42,6 +42,7 @@
             this.lbexceptions = new System.Windows.Forms.Label();
             this.lbdiscription = new System.Windows.Forms.Label();
             this.lbresult = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbname
@@ -159,11 +160,22 @@
             this.lbresult.TabIndex = 13;
             this.lbresult.Text = "Result:";
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(110, 611);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(145, 29);
+            this.btnSave.TabIndex = 14;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // Use_Case_input
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 605);
+            this.ClientSize = new System.Drawing.Size(367, 667);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lbresult);
             this.Controls.Add(this.lbdiscription);
             this.Controls.Add(this.lbexceptions);
@@ -180,7 +192,6 @@
             this.Controls.Add(this.tbname);
             this.Name = "Use_Case_input";
             this.Text = "Use_Case_input";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Use_Case_input_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +212,6 @@
         public System.Windows.Forms.RichTextBox tbdescription;
         public System.Windows.Forms.RichTextBox tbexceptions;
         public System.Windows.Forms.TextBox tbresult;
+        private System.Windows.Forms.Button btnSave;
     }
 }

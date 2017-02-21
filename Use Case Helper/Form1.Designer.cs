@@ -142,7 +142,6 @@
             this.pnteken.Size = new System.Drawing.Size(496, 296);
             this.pnteken.TabIndex = 4;
             this.pnteken.Click += new System.EventHandler(this.pnteken_Click);
-            this.pnteken.DoubleClick += new System.EventHandler(this.pnteken_DoubleClick);
             // 
             // label3
             // 
