@@ -202,16 +202,20 @@ namespace Use_Case_Helper
                     selectedactors++;
                 }
 
-                else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0)
+                else if (mannetje1select.X == 0 && mannetje2select.X != 0 && mannetje3select.X == 0 && aantalman >1)
                 {
                     g.DrawRectangle(p, mannetje2);
                     selectedactors++;
                 }
 
-                else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0)
+                else if (mannetje1select.X == 0 && mannetje2select.X == 0 && mannetje3select.X != 0 && aantalman > 2)
                 {
                     g.DrawRectangle(p, mannetje3);
                     selectedactors++;
+                }
+                else
+                {
+                    MessageBox.Show("Create the corresponding actor first");
                 }
 
             }
