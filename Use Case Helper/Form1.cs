@@ -18,7 +18,9 @@ namespace Use_Case_Helper
         int selectedcases = 0;
         public int wichcase = 0;
         int fillcounter = 0;
+        string naamactor;
         string nw = "";
+        public  bool manmetcase = false;
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
@@ -267,7 +269,9 @@ namespace Use_Case_Helper
                     selectedcases = 0;
                     match.X = 0;
                     mannetje1select.X = 0;
-                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label1.Text;
+                    naamactor = label1.Text;
+                    manmetcase = true;
+
                     wichcase = 0;
 
                 }
@@ -275,7 +279,9 @@ namespace Use_Case_Helper
                 {
                     g.DrawLine(p, mannetje2select.X + 75, mannetje2select.Y, match.X - 75, match.Y);
 
-                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label2.Text;
+                    naamactor = label2.Text;
+                    manmetcase = true;
+
 
                     Brush filler = new SolidBrush(background);
                     g.FillRectangle(filler, mannetje2.X - 1, mannetje2.Y - 1, mannetje2.Width + 5, mannetje2.Height + 5);
@@ -293,7 +299,8 @@ namespace Use_Case_Helper
                 {
                     g.DrawLine(p, mannetje3select.X + 75, mannetje3select.Y, match.X - 75, match.Y);
 
-                    usecaseinput.tbactoren.Text = usecaseinput.tbactoren.Text + " " + label3.Text;
+                    naamactor = label3.Text;
+                    manmetcase = true;
 
                     Brush filler = new SolidBrush(background);
                     g.FillRectangle(filler, mannetje3.X - 1, mannetje3.Y - 1, mannetje3.Width + 5, mannetje3.Height + 5);
@@ -332,20 +339,28 @@ namespace Use_Case_Helper
                                 }
                                 if (fillcounter == 2)
                                 {
-                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
-                                    usecaseinput.tbassumption.Text = nw;
+                                if (manmetcase == true)
+                                {
+                                    usecaseinput.tbactoren.Text = naamactor;
+                                    usecaseinput.input.Add("*" + wichcase + "*" + naamactor);
+                                }
                                 }
                                 if (fillcounter == 3)
                                 {
                                     nw = result.Replace("*" + wichcase.ToString() + "*", "");
-                                    usecaseinput.tbdescription.Text = nw;
+                                    usecaseinput.tbassumption.Text = nw;
                                 }
                                 if (fillcounter == 4)
                                 {
                                     nw = result.Replace("*" + wichcase.ToString() + "*", "");
-                                    usecaseinput.tbexceptions.Text = nw;
+                                    usecaseinput.tbdescription.Text = nw;
                                 }
                                 if (fillcounter == 5)
+                                {
+                                    nw = result.Replace("*" + wichcase.ToString() + "*", "");
+                                    usecaseinput.tbexceptions.Text = nw;
+                                }
+                                if (fillcounter == 6)
                                 {
                                     nw = result.Replace("*" + wichcase.ToString() + "*", "");
                                     usecaseinput.tbresult.Text = nw;

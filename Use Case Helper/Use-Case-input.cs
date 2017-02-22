@@ -15,6 +15,7 @@ namespace Use_Case_Helper
     {
         public List<string> input = new List<string>();
         int wichcases = 0;
+        bool manmetcase;
         public Use_Case_input()
         {
             InitializeComponent();
@@ -25,6 +26,16 @@ namespace Use_Case_Helper
 
             input.Add("*" + wichcases.ToString() + "*" + tbname.Text);
             input.Add("*" + wichcases.ToString() + "*" + tbsummary.Text);
+
+            if (manmetcase == true)
+            {
+                input.Add("*" + wichcases.ToString() + "*" + tbname.Text);
+            }
+            else
+            {
+                input.Add("*" + wichcases.ToString() + "*" + "");
+            }
+
             input.Add("*" + wichcases.ToString() + "*" + tbassumption.Text);
             input.Add("*" + wichcases.ToString() + "*" + tbdescription.Text);
             input.Add("*" + wichcases.ToString() + "*" + tbexceptions.Text);
@@ -33,5 +44,9 @@ namespace Use_Case_Helper
             this.Close();
         }
 
+        private void Use_Case_input_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            tbactoren.Clear();
+        }
     }
 }

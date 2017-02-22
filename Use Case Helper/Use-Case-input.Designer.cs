@@ -203,6 +203,7 @@
             this.Controls.Add(this.tbname);
             this.Name = "Use_Case_input";
             this.Text = "Use_Case_input";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Use_Case_input_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
