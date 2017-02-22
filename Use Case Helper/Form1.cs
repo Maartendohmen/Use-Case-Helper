@@ -21,6 +21,7 @@ namespace Use_Case_Helper
         string naamactor;
         string nw = "";
         public  bool manmetcase = false;
+        bool first = true;
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
@@ -339,11 +340,21 @@ namespace Use_Case_Helper
                                 }
                                 if (fillcounter == 2)
                                 {
-                                if (manmetcase == true)
+                                if (manmetcase == true && first == true )
                                 {
                                     usecaseinput.tbactoren.Text = naamactor;
                                     usecaseinput.input.Add("*" + wichcase + "*" + naamactor);
+                                    first = false;
+                                    
                                 }
+                                if (manmetcase == true && first == false)
+                                {
+                                    Predicate<string> eerstenaam = 
+                                    //usecaseinput.input.
+                                }
+
+
+
                                 }
                                 if (fillcounter == 3)
                                 {
@@ -505,7 +516,6 @@ namespace Use_Case_Helper
             g.DrawLine(p, armb2, arme2);
             g.DrawEllipse(p, 50, 200, 20, 20);
         }
-
        
     }
 }
