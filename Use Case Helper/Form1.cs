@@ -18,10 +18,8 @@ namespace Use_Case_Helper
         int selectedcases = 0;
         public int wichcase = 0;
         int fillcounter = 0;
-        string naamactor;
+        string naamactor = "";
         string nw = "";
-        public  bool manmetcase = false;
-        bool first = true;
         Graphics g;
         Nameactor name = new Nameactor();
         Use_Case_input usecaseinput = new Use_Case_input();
@@ -271,7 +269,6 @@ namespace Use_Case_Helper
                     match.X = 0;
                     mannetje1select.X = 0;
                     naamactor = label1.Text;
-                    manmetcase = true;
 
                     wichcase = 0;
 
@@ -281,7 +278,6 @@ namespace Use_Case_Helper
                     g.DrawLine(p, mannetje2select.X + 75, mannetje2select.Y, match.X - 75, match.Y);
 
                     naamactor = label2.Text;
-                    manmetcase = true;
 
 
                     Brush filler = new SolidBrush(background);
@@ -301,7 +297,6 @@ namespace Use_Case_Helper
                     g.DrawLine(p, mannetje3select.X + 75, mannetje3select.Y, match.X - 75, match.Y);
 
                     naamactor = label3.Text;
-                    manmetcase = true;
 
                     Brush filler = new SolidBrush(background);
                     g.FillRectangle(filler, mannetje3.X - 1, mannetje3.Y - 1, mannetje3.Width + 5, mannetje3.Height + 5);
@@ -338,24 +333,11 @@ namespace Use_Case_Helper
                                     nw = result.Replace("*" + wichcase.ToString() + "*", "");
                                     usecaseinput.tbsummary.Text = nw;
                                 }
-                                if (fillcounter == 2)
-                                {
-                                if (manmetcase == true && first == true )
-                                {
-                                    usecaseinput.tbactoren.Text = naamactor;
-                                    usecaseinput.input.Add("*" + wichcase + "*" + naamactor);
-                                    first = false;
-                                    
-                                }
-                                if (manmetcase == true && first == false)
-                                {
-                                    Predicate<string> eerstenaam = 
-                                    //usecaseinput.input.
-                                }
-
-
-
-                                }
+                            //    if (fillcounter == 2)
+                            //    {
+                            //          usecaseinput.tbactoren.Text = naamactor;
+                            //          usecaseinput.input.Add("*" + wichcase + "*" + naamactor);         
+                            //     }
                                 if (fillcounter == 3)
                                 {
                                     nw = result.Replace("*" + wichcase.ToString() + "*", "");
@@ -377,9 +359,8 @@ namespace Use_Case_Helper
                                     usecaseinput.tbresult.Text = nw;
                                 }
                                 fillcounter++;
-                            
+                                
                         }
-                        
                     }
                     usecaseinput.ShowDialog();
                     fillcounter = 0;
